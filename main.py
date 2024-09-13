@@ -10,10 +10,20 @@ class STaskAdd(BaseModel):
     description: str | None
 
 
-class Stask(STaskAdd):
+class STask(STaskAdd):
+    id: int
+
+tasks = []
+
+@app.post("/tasks")
+async def add_task(
+        task: STaskAdd,
+):
+    tasks.append(task)
+    return {"ok": True}
 
 
-@app.get("/tasks")
-def get_tasks():
-    task = Task(name="Не забувай практикуватися")
-    return {"data": task}
+#@app.get("/tasks")
+#def get_tasks():
+#    task = Task(name="Не забувай практикуватися")
+#    return {"data": task}
