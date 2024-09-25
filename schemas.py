@@ -3,10 +3,9 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-
 class STaskAdd(BaseModel):
     name: str
-    description: str | None
+    description: Optional[str]
 
 
 class STask(STaskAdd):

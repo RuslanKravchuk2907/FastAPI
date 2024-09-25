@@ -15,12 +15,6 @@ async def lifespan(app: FastAPI):
     yield
     print("Off")
 
+
 app = FastAPI(lifespan=lifespan)
-app.includ_router(task_router)
-
-
-
-
-
-
-
+app.include_router(task_router)
